@@ -1,0 +1,238 @@
+[
+  {
+    "italian": "considerare",
+    "german": "betrachten",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "analizzare",
+    "german": "analysieren",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "elaborare",
+    "german": "ausarbeiten",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "formulare",
+    "german": "formulieren",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "sottolineare",
+    "german": "betonen",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "approfondire",
+    "german": "vertiefen",
+    "pos": "verb",
+    "conjugation_class": "ire_isc"
+  },
+  {
+    "italian": "percepire",
+    "german": "wahrnehmen",
+    "pos": "verb",
+    "conjugation_class": "ire_isc"
+  },
+  {
+    "italian": "contribuire",
+    "german": "beitragen",
+    "pos": "verb",
+    "conjugation_class": "ire_isc"
+  },
+  {
+    "italian": "conseguire",
+    "german": "erreichen/erzielen",
+    "pos": "verb",
+    "conjugation_class": "ire"
+  },
+  {
+    "italian": "confermare",
+    "german": "bestätigen",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "verificare",
+    "german": "überprüfen",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "interpretare",
+    "german": "interpretieren",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "determinare",
+    "german": "bestimmen",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "articolare",
+    "german": "gliedern/artikulieren",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "strutturare",
+    "german": "strukturieren",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "concetto",
+    "german": "Konzept",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "teoria",
+    "german": "Theorie",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "italian": "ipotesi",
+    "german": "Hypothese",
+    "pos": "noun",
+    "gender": "f",
+    "plural": "ipotesi"
+  },
+  {
+    "italian": "argomento",
+    "german": "Argument/Thema",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "aspetto",
+    "german": "Aspekt",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "elemento",
+    "german": "Element",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "fattore",
+    "german": "Faktor",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "contesto",
+    "german": "Kontext",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "principio",
+    "german": "Prinzip",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "approccio",
+    "german": "Ansatz",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "prospettiva",
+    "german": "Perspektive",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "italian": "tendenza",
+    "german": "Tendenz",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "italian": "criterio",
+    "german": "Kriterium",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "ambito",
+    "german": "Bereich",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "percorso",
+    "german": "Weg/Werdegang",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "fondamentale",
+    "german": "grundlegend",
+    "pos": "adjective"
+  },
+  {
+    "italian": "rilevante",
+    "german": "relevant",
+    "pos": "adjective"
+  },
+  {
+    "italian": "coerente",
+    "german": "kohärent",
+    "pos": "adjective"
+  },
+  {
+    "italian": "ambiguo",
+    "german": "mehrdeutig",
+    "pos": "adjective"
+  },
+  {
+    "italian": "plausibile",
+    "german": "plausibel",
+    "pos": "adjective"
+  },
+  {
+    "italian": "controverso",
+    "german": "umstritten",
+    "pos": "adjective"
+  },
+  {
+    "italian": "implicito",
+    "german": "implizit",
+    "pos": "adjective"
+  },
+  {
+    "italian": "esplicito",
+    "german": "explizit",
+    "pos": "adjective"
+  },
+  {
+    "italian": "peraltro",
+    "german": "übrigens/zudem",
+    "pos": "adverb"
+  },
+  {
+    "italian": "pertanto",
+    "german": "daher",
+    "pos": "adverb"
+  },
+  {
+    "italian": "appunto",
+    "german": "eben/genau",
+    "pos": "adverb"
+  }
+]

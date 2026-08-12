@@ -1,0 +1,250 @@
+[
+  {
+    "italian": "scegliere",
+    "german": "wählen",
+    "pos": "verb",
+    "conjugation_class": "ere",
+    "irregular_forms": {
+      "presente": {
+        "io": "scelgo",
+        "tu": "scegli",
+        "lui": "sceglie",
+        "lei": "sceglie",
+        "noi": "scegliamo",
+        "voi": "scegliete",
+        "loro": "scelgono"
+      },
+      "congiuntivo_presente": {
+        "io": "scelga",
+        "tu": "scelga",
+        "lui": "scelga",
+        "lei": "scelga",
+        "noi": "scegliamo",
+        "voi": "scegliate",
+        "loro": "scelgano"
+      },
+      "passato_prossimo": {
+        "io": "ho scelto",
+        "tu": "hai scelto",
+        "lui": "ha scelto",
+        "lei": "ha scelto",
+        "noi": "abbiamo scelto",
+        "voi": "avete scelto",
+        "loro": "hanno scelto"
+      }
+    },
+    "example_it": "Scelgo il vino rosso.",
+    "example_de": "Ich wähle den Rotwein."
+  },
+  {
+    "italian": "dimostrare",
+    "german": "beweisen/zeigen",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "garantire",
+    "german": "garantieren",
+    "pos": "verb",
+    "conjugation_class": "ire_isc"
+  },
+  {
+    "italian": "realizzare",
+    "german": "verwirklichen",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "sviluppare",
+    "german": "entwickeln",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "valutare",
+    "german": "bewerten",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "evitare",
+    "german": "vermeiden",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "affrontare",
+    "german": "konfrontieren/angehen",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "dipendere",
+    "german": "abhängen",
+    "pos": "verb",
+    "conjugation_class": "ere"
+  },
+  {
+    "italian": "richiedere",
+    "german": "erfordern",
+    "pos": "verb",
+    "conjugation_class": "ere"
+  },
+  {
+    "italian": "stabilire",
+    "german": "festlegen",
+    "pos": "verb",
+    "conjugation_class": "ire_isc"
+  },
+  {
+    "italian": "collaborare",
+    "german": "zusammenarbeiten",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "influenzare",
+    "german": "beeinflussen",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "fenomeno",
+    "german": "Phänomen",
+    "pos": "noun",
+    "gender": "m",
+    "plural": "fenomeni"
+  },
+  {
+    "italian": "crisi",
+    "german": "Krise",
+    "pos": "noun",
+    "gender": "f",
+    "plural": "crisi"
+  },
+  {
+    "italian": "analisi",
+    "german": "Analyse",
+    "pos": "noun",
+    "gender": "f",
+    "plural": "analisi"
+  },
+  {
+    "italian": "livello",
+    "german": "Niveau/Ebene",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "processo",
+    "german": "Prozess",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "struttura",
+    "german": "Struktur",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "italian": "politica",
+    "german": "Politik",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "italian": "economia",
+    "german": "Wirtschaft",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "italian": "ricerca",
+    "german": "Forschung/Suche",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "italian": "responsabilità",
+    "german": "Verantwortung",
+    "pos": "noun",
+    "gender": "f",
+    "plural": "responsabilità"
+  },
+  {
+    "italian": "vantaggio",
+    "german": "Vorteil",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "svantaggio",
+    "german": "Nachteil",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "differenza",
+    "german": "Unterschied",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "italian": "conseguenza",
+    "german": "Konsequenz",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "italian": "strategia",
+    "german": "Strategie",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "italian": "efficace",
+    "german": "wirksam",
+    "pos": "adjective"
+  },
+  {
+    "italian": "evidente",
+    "german": "offensichtlich",
+    "pos": "adjective"
+  },
+  {
+    "italian": "complesso",
+    "german": "komplex",
+    "pos": "adjective"
+  },
+  {
+    "italian": "significativo",
+    "german": "bedeutend",
+    "pos": "adjective"
+  },
+  {
+    "italian": "adeguato",
+    "german": "angemessen",
+    "pos": "adjective"
+  },
+  {
+    "italian": "sostenibile",
+    "german": "nachhaltig",
+    "pos": "adjective"
+  },
+  {
+    "italian": "tuttavia",
+    "german": "dennoch",
+    "pos": "adverb"
+  },
+  {
+    "italian": "dunque",
+    "german": "also/folglich",
+    "pos": "adverb"
+  },
+  {
+    "italian": "perciò",
+    "german": "deshalb",
+    "pos": "adverb"
+  }
+]

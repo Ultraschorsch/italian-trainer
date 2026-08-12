@@ -1,0 +1,177 @@
+[
+  {
+    "italian": "evidenziare",
+    "german": "hervorheben",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "argomentare",
+    "german": "argumentieren",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "ipotizzare",
+    "german": "hypothetisieren",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "ostacolare",
+    "german": "behindern",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "agevolare",
+    "german": "erleichtern",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "attuare",
+    "german": "umsetzen",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "delineare",
+    "german": "umreißen",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "concettualizzare",
+    "german": "konzeptualisieren",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "relativizzare",
+    "german": "relativieren",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "ravvisare",
+    "german": "erkennen/feststellen",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "plasmare",
+    "german": "formen/prägen",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "preservare",
+    "german": "bewahren",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "paradigma",
+    "german": "Paradigma",
+    "pos": "noun",
+    "gender": "m",
+    "plural": "paradigmi"
+  },
+  {
+    "italian": "dilemma",
+    "german": "Dilemma",
+    "pos": "noun",
+    "gender": "m",
+    "plural": "dilemmi"
+  },
+  {
+    "italian": "assunto",
+    "german": "Annahme",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "presupposto",
+    "german": "Voraussetzung",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "peculiarità",
+    "german": "Besonderheit",
+    "pos": "noun",
+    "gender": "f",
+    "plural": "peculiarità"
+  },
+  {
+    "italian": "ambivalenza",
+    "german": "Ambivalenz",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "italian": "sfumatura",
+    "german": "Nuance",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "italian": "egemonia",
+    "german": "Hegemonie",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "italian": "dicotomia",
+    "german": "Dichotomie",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "italian": "retaggio",
+    "german": "Erbe (kulturell)",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "intrinseco",
+    "german": "innewohnend/intrinsisch",
+    "pos": "adjective"
+  },
+  {
+    "italian": "imprescindibile",
+    "german": "unabdingbar",
+    "pos": "adjective"
+  },
+  {
+    "italian": "peculiare",
+    "german": "eigentümlich/spezifisch",
+    "pos": "adjective"
+  },
+  {
+    "italian": "ambivalente",
+    "german": "ambivalent",
+    "pos": "adjective"
+  },
+  {
+    "italian": "egemonico",
+    "german": "hegemonial",
+    "pos": "adjective"
+  },
+  {
+    "italian": "paradigmatico",
+    "german": "paradigmatisch",
+    "pos": "adjective"
+  },
+  {
+    "italian": "perlopiù",
+    "german": "größtenteils",
+    "pos": "adverb"
+  },
+  {
+    "italian": "segnatamente",
+    "german": "insbesondere",
+    "pos": "adverb"
+  }
+]

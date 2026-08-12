@@ -1,0 +1,694 @@
+[
+  {
+    "italian": "essere",
+    "german": "sein",
+    "pos": "verb",
+    "conjugation_class": "are",
+    "irregular_forms": {
+      "presente": {
+        "io": "sono",
+        "tu": "sei",
+        "lui": "è",
+        "lei": "è",
+        "noi": "siamo",
+        "voi": "siete",
+        "loro": "sono"
+      }
+    },
+    "example_it": "Io sono stanco.",
+    "example_de": "Ich bin müde."
+  },
+  {
+    "italian": "avere",
+    "german": "haben",
+    "pos": "verb",
+    "conjugation_class": "are",
+    "irregular_forms": {
+      "presente": {
+        "io": "ho",
+        "tu": "hai",
+        "lui": "ha",
+        "lei": "ha",
+        "noi": "abbiamo",
+        "voi": "avete",
+        "loro": "hanno"
+      }
+    },
+    "example_it": "Ho fame.",
+    "example_de": "Ich habe Hunger."
+  },
+  {
+    "italian": "andare",
+    "german": "gehen",
+    "pos": "verb",
+    "conjugation_class": "are",
+    "irregular_forms": {
+      "presente": {
+        "io": "vado",
+        "tu": "vai",
+        "lui": "va",
+        "lei": "va",
+        "noi": "andiamo",
+        "voi": "andate",
+        "loro": "vanno"
+      }
+    },
+    "example_it": "Vado a scuola.",
+    "example_de": "Ich gehe zur Schule."
+  },
+  {
+    "italian": "fare",
+    "german": "machen/tun",
+    "pos": "verb",
+    "conjugation_class": "are",
+    "irregular_forms": {
+      "presente": {
+        "io": "faccio",
+        "tu": "fai",
+        "lui": "fa",
+        "lei": "fa",
+        "noi": "facciamo",
+        "voi": "fate",
+        "loro": "fanno"
+      }
+    },
+    "example_it": "Cosa fai?",
+    "example_de": "Was machst du?"
+  },
+  {
+    "italian": "potere",
+    "german": "können",
+    "pos": "verb",
+    "conjugation_class": "ere",
+    "irregular_forms": {
+      "presente": {
+        "io": "posso",
+        "tu": "puoi",
+        "lui": "può",
+        "lei": "può",
+        "noi": "possiamo",
+        "voi": "potete",
+        "loro": "possono"
+      }
+    },
+    "example_it": "Non posso venire.",
+    "example_de": "Ich kann nicht kommen."
+  },
+  {
+    "italian": "volere",
+    "german": "wollen",
+    "pos": "verb",
+    "conjugation_class": "ere",
+    "irregular_forms": {
+      "presente": {
+        "io": "voglio",
+        "tu": "vuoi",
+        "lui": "vuole",
+        "lei": "vuole",
+        "noi": "vogliamo",
+        "voi": "volete",
+        "loro": "vogliono"
+      }
+    },
+    "example_it": "Voglio un caffè.",
+    "example_de": "Ich möchte einen Kaffee."
+  },
+  {
+    "italian": "dovere",
+    "german": "müssen",
+    "pos": "verb",
+    "conjugation_class": "ere",
+    "irregular_forms": {
+      "presente": {
+        "io": "devo",
+        "tu": "devi",
+        "lui": "deve",
+        "lei": "deve",
+        "noi": "dobbiamo",
+        "voi": "dovete",
+        "loro": "devono"
+      }
+    },
+    "example_it": "Devo studiare.",
+    "example_de": "Ich muss lernen."
+  },
+  {
+    "italian": "stare",
+    "german": "sich befinden/bleiben",
+    "pos": "verb",
+    "conjugation_class": "are",
+    "irregular_forms": {
+      "presente": {
+        "io": "sto",
+        "tu": "stai",
+        "lui": "sta",
+        "lei": "sta",
+        "noi": "stiamo",
+        "voi": "state",
+        "loro": "stanno"
+      }
+    },
+    "example_it": "Sto bene.",
+    "example_de": "Es geht mir gut."
+  },
+  {
+    "italian": "dare",
+    "german": "geben",
+    "pos": "verb",
+    "conjugation_class": "are",
+    "irregular_forms": {
+      "presente": {
+        "io": "do",
+        "tu": "dai",
+        "lui": "dà",
+        "lei": "dà",
+        "noi": "diamo",
+        "voi": "date",
+        "loro": "danno"
+      }
+    },
+    "example_it": "Mi dai il libro?",
+    "example_de": "Gibst du mir das Buch?"
+  },
+  {
+    "italian": "venire",
+    "german": "kommen",
+    "pos": "verb",
+    "conjugation_class": "ire",
+    "irregular_forms": {
+      "presente": {
+        "io": "vengo",
+        "tu": "vieni",
+        "lui": "viene",
+        "lei": "viene",
+        "noi": "veniamo",
+        "voi": "venite",
+        "loro": "vengono"
+      }
+    },
+    "example_it": "Vieni con noi?",
+    "example_de": "Kommst du mit uns?"
+  },
+  {
+    "italian": "uscire",
+    "german": "ausgehen",
+    "pos": "verb",
+    "conjugation_class": "ire",
+    "irregular_forms": {
+      "presente": {
+        "io": "esco",
+        "tu": "esci",
+        "lui": "esce",
+        "lei": "esce",
+        "noi": "usciamo",
+        "voi": "uscite",
+        "loro": "escono"
+      }
+    },
+    "example_it": "Esco stasera.",
+    "example_de": "Ich gehe heute Abend aus."
+  },
+  {
+    "italian": "sapere",
+    "german": "wissen/können",
+    "pos": "verb",
+    "conjugation_class": "ere",
+    "irregular_forms": {
+      "presente": {
+        "io": "so",
+        "tu": "sai",
+        "lui": "sa",
+        "lei": "sa",
+        "noi": "sappiamo",
+        "voi": "sapete",
+        "loro": "sanno"
+      }
+    },
+    "example_it": "Non so.",
+    "example_de": "Ich weiß es nicht."
+  },
+  {
+    "italian": "bere",
+    "german": "trinken",
+    "pos": "verb",
+    "conjugation_class": "ere",
+    "irregular_forms": {
+      "presente": {
+        "io": "bevo",
+        "tu": "bevi",
+        "lui": "beve",
+        "lei": "beve",
+        "noi": "beviamo",
+        "voi": "bevete",
+        "loro": "bevono"
+      }
+    },
+    "example_it": "Bevo acqua.",
+    "example_de": "Ich trinke Wasser."
+  },
+  {
+    "italian": "parlare",
+    "german": "sprechen",
+    "pos": "verb",
+    "conjugation_class": "are",
+    "example_it": "Parlo italiano.",
+    "example_de": "Ich spreche Italienisch."
+  },
+  {
+    "italian": "guardare",
+    "german": "schauen",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "ascoltare",
+    "german": "zuhören",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "lavorare",
+    "german": "arbeiten",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "mangiare",
+    "german": "essen",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "abitare",
+    "german": "wohnen",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "comprare",
+    "german": "kaufen",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "studiare",
+    "german": "lernen/studieren",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "chiamare",
+    "german": "rufen/nennen",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "aspettare",
+    "german": "warten",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "scrivere",
+    "german": "schreiben",
+    "pos": "verb",
+    "conjugation_class": "ere"
+  },
+  {
+    "italian": "leggere",
+    "german": "lesen",
+    "pos": "verb",
+    "conjugation_class": "ere"
+  },
+  {
+    "italian": "prendere",
+    "german": "nehmen",
+    "pos": "verb",
+    "conjugation_class": "ere"
+  },
+  {
+    "italian": "vedere",
+    "german": "sehen",
+    "pos": "verb",
+    "conjugation_class": "ere"
+  },
+  {
+    "italian": "chiedere",
+    "german": "fragen",
+    "pos": "verb",
+    "conjugation_class": "ere"
+  },
+  {
+    "italian": "rispondere",
+    "german": "antworten",
+    "pos": "verb",
+    "conjugation_class": "ere"
+  },
+  {
+    "italian": "dormire",
+    "german": "schlafen",
+    "pos": "verb",
+    "conjugation_class": "ire"
+  },
+  {
+    "italian": "aprire",
+    "german": "öffnen",
+    "pos": "verb",
+    "conjugation_class": "ire"
+  },
+  {
+    "italian": "partire",
+    "german": "abreisen",
+    "pos": "verb",
+    "conjugation_class": "ire"
+  },
+  {
+    "italian": "sentire",
+    "german": "hören/fühlen",
+    "pos": "verb",
+    "conjugation_class": "ire"
+  },
+  {
+    "italian": "capire",
+    "german": "verstehen",
+    "pos": "verb",
+    "conjugation_class": "ire_isc"
+  },
+  {
+    "italian": "finire",
+    "german": "beenden",
+    "pos": "verb",
+    "conjugation_class": "ire_isc"
+  },
+  {
+    "italian": "preferire",
+    "german": "bevorzugen",
+    "pos": "verb",
+    "conjugation_class": "ire_isc"
+  },
+  {
+    "italian": "casa",
+    "german": "Haus",
+    "pos": "noun",
+    "gender": "f",
+    "example_it": "La casa è grande.",
+    "example_de": "Das Haus ist groß."
+  },
+  {
+    "italian": "libro",
+    "german": "Buch",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "acqua",
+    "german": "Wasser",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "italian": "pane",
+    "german": "Brot",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "ragazzo",
+    "german": "Junge",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "ragazza",
+    "german": "Mädchen",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "italian": "cane",
+    "german": "Hund",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "gatto",
+    "german": "Katze",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "scuola",
+    "german": "Schule",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "italian": "città",
+    "german": "Stadt",
+    "pos": "noun",
+    "gender": "f",
+    "plural": "città"
+  },
+  {
+    "italian": "amico",
+    "german": "Freund",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "amica",
+    "german": "Freundin",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "italian": "famiglia",
+    "german": "Familie",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "italian": "bambino",
+    "german": "Kind (männlich)",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "mano",
+    "german": "Hand",
+    "pos": "noun",
+    "gender": "f",
+    "plural": "mani"
+  },
+  {
+    "italian": "giorno",
+    "german": "Tag",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "notte",
+    "german": "Nacht",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "italian": "anno",
+    "german": "Jahr",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "tempo",
+    "german": "Zeit/Wetter",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "lavoro",
+    "german": "Arbeit",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "macchina",
+    "german": "Auto",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "italian": "strada",
+    "german": "Straße",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "italian": "porta",
+    "german": "Tür",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "italian": "finestra",
+    "german": "Fenster",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "italian": "tavolo",
+    "german": "Tisch",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "sedia",
+    "german": "Stuhl",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "italian": "caffè",
+    "german": "Kaffee",
+    "pos": "noun",
+    "gender": "m",
+    "plural": "caffè"
+  },
+  {
+    "italian": "treno",
+    "german": "Zug",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "ufficio",
+    "german": "Büro",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "nome",
+    "german": "Name",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "grande",
+    "german": "groß",
+    "pos": "adjective"
+  },
+  {
+    "italian": "piccolo",
+    "german": "klein",
+    "pos": "adjective"
+  },
+  {
+    "italian": "buono",
+    "german": "gut",
+    "pos": "adjective"
+  },
+  {
+    "italian": "bello",
+    "german": "schön",
+    "pos": "adjective"
+  },
+  {
+    "italian": "nuovo",
+    "german": "neu",
+    "pos": "adjective"
+  },
+  {
+    "italian": "vecchio",
+    "german": "alt",
+    "pos": "adjective"
+  },
+  {
+    "italian": "felice",
+    "german": "glücklich",
+    "pos": "adjective"
+  },
+  {
+    "italian": "stanco",
+    "german": "müde",
+    "pos": "adjective"
+  },
+  {
+    "italian": "facile",
+    "german": "einfach",
+    "pos": "adjective"
+  },
+  {
+    "italian": "difficile",
+    "german": "schwierig",
+    "pos": "adjective"
+  },
+  {
+    "italian": "oggi",
+    "german": "heute",
+    "pos": "adverb"
+  },
+  {
+    "italian": "domani",
+    "german": "morgen",
+    "pos": "adverb"
+  },
+  {
+    "italian": "sempre",
+    "german": "immer",
+    "pos": "adverb"
+  },
+  {
+    "italian": "mai",
+    "german": "nie",
+    "pos": "adverb"
+  },
+  {
+    "italian": "molto",
+    "german": "sehr/viel",
+    "pos": "adverb"
+  },
+  {
+    "italian": "bene",
+    "german": "gut",
+    "pos": "adverb"
+  },
+  {
+    "italian": "qui",
+    "german": "hier",
+    "pos": "adverb"
+  },
+  {
+    "italian": "là",
+    "german": "dort",
+    "pos": "adverb"
+  },
+  {
+    "italian": "e",
+    "german": "und",
+    "pos": "other"
+  },
+  {
+    "italian": "ma",
+    "german": "aber",
+    "pos": "other"
+  },
+  {
+    "italian": "con",
+    "german": "mit",
+    "pos": "other"
+  },
+  {
+    "italian": "per",
+    "german": "für",
+    "pos": "other"
+  },
+  {
+    "italian": "uno",
+    "german": "eins",
+    "pos": "other"
+  },
+  {
+    "italian": "due",
+    "german": "zwei",
+    "pos": "other"
+  }
+]

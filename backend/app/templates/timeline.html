@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Fortschritt – Passaporto Italiano{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>Fortschritt von {{ profile.display_name }}</h1>
+  <div class="grid" id="timeline-summary"></div>
+</div>
+
+<div class="card">
+  <h2>Aktivität (letzte 60 Tage)</h2>
+  <div class="bar-chart" id="timeline-series"></div>
+</div>
+
+<div class="card">
+  <h2>Gefestigte Vokabeln pro Level</h2>
+  <p class="muted">Als gefestigt gilt eine Vokabel/Übung ab 3 erfolgreichen Wiederholungen.</p>
+  <div class="level-bars" id="timeline-levels"></div>
+</div>
+{% endblock %}

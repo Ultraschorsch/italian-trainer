@@ -1,0 +1,462 @@
+[
+  {
+    "italian": "dire",
+    "german": "sagen",
+    "pos": "verb",
+    "conjugation_class": "ere",
+    "irregular_forms": {
+      "presente": {
+        "io": "dico",
+        "tu": "dici",
+        "lui": "dice",
+        "lei": "dice",
+        "noi": "diciamo",
+        "voi": "dite",
+        "loro": "dicono"
+      },
+      "imperfetto": {
+        "io": "dicevo",
+        "tu": "dicevi",
+        "lui": "diceva",
+        "lei": "diceva",
+        "noi": "dicevamo",
+        "voi": "dicevate",
+        "loro": "dicevano"
+      },
+      "passato_prossimo": {
+        "io": "ho detto",
+        "tu": "hai detto",
+        "lui": "ha detto",
+        "lei": "ha detto",
+        "noi": "abbiamo detto",
+        "voi": "avete detto",
+        "loro": "hanno detto"
+      }
+    },
+    "example_it": "Cosa dici?",
+    "example_de": "Was sagst du?"
+  },
+  {
+    "italian": "mettere",
+    "german": "legen/stellen",
+    "pos": "verb",
+    "conjugation_class": "ere",
+    "irregular_forms": {
+      "passato_prossimo": {
+        "io": "ho messo",
+        "tu": "hai messo",
+        "lui": "ha messo",
+        "lei": "ha messo",
+        "noi": "abbiamo messo",
+        "voi": "avete messo",
+        "loro": "hanno messo"
+      }
+    }
+  },
+  {
+    "italian": "perdere",
+    "german": "verlieren",
+    "pos": "verb",
+    "conjugation_class": "ere",
+    "irregular_forms": {
+      "passato_prossimo": {
+        "io": "ho perso",
+        "tu": "hai perso",
+        "lui": "ha perso",
+        "lei": "ha perso",
+        "noi": "abbiamo perso",
+        "voi": "avete perso",
+        "loro": "hanno perso"
+      }
+    }
+  },
+  {
+    "italian": "chiudere",
+    "german": "schließen",
+    "pos": "verb",
+    "conjugation_class": "ere",
+    "irregular_forms": {
+      "passato_prossimo": {
+        "io": "ho chiuso",
+        "tu": "hai chiuso",
+        "lui": "ha chiuso",
+        "lei": "ha chiuso",
+        "noi": "abbiamo chiuso",
+        "voi": "avete chiuso",
+        "loro": "hanno chiuso"
+      }
+    }
+  },
+  {
+    "italian": "decidere",
+    "german": "entscheiden",
+    "pos": "verb",
+    "conjugation_class": "ere",
+    "irregular_forms": {
+      "passato_prossimo": {
+        "io": "ho deciso",
+        "tu": "hai deciso",
+        "lui": "ha deciso",
+        "lei": "ha deciso",
+        "noi": "abbiamo deciso",
+        "voi": "avete deciso",
+        "loro": "hanno deciso"
+      }
+    }
+  },
+  {
+    "italian": "vincere",
+    "german": "gewinnen",
+    "pos": "verb",
+    "conjugation_class": "ere",
+    "irregular_forms": {
+      "passato_prossimo": {
+        "io": "ho vinto",
+        "tu": "hai vinto",
+        "lui": "ha vinto",
+        "lei": "ha vinto",
+        "noi": "abbiamo vinto",
+        "voi": "avete vinto",
+        "loro": "hanno vinto"
+      }
+    }
+  },
+  {
+    "italian": "rompere",
+    "german": "kaputt machen",
+    "pos": "verb",
+    "conjugation_class": "ere",
+    "irregular_forms": {
+      "passato_prossimo": {
+        "io": "ho rotto",
+        "tu": "hai rotto",
+        "lui": "ha rotto",
+        "lei": "ha rotto",
+        "noi": "abbiamo rotto",
+        "voi": "avete rotto",
+        "loro": "hanno rotto"
+      }
+    }
+  },
+  {
+    "italian": "arrivare",
+    "german": "ankommen",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "tornare",
+    "german": "zurückkommen",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "entrare",
+    "german": "eintreten",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "camminare",
+    "german": "gehen/laufen",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "giocare",
+    "german": "spielen",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "cucinare",
+    "german": "kochen",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "pagare",
+    "german": "bezahlen",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "cercare",
+    "german": "suchen",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "trovare",
+    "german": "finden",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "imparare",
+    "german": "lernen",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "iniziare",
+    "german": "anfangen",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "spiegare",
+    "german": "erklären",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "ricordare",
+    "german": "sich erinnern",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "dimenticare",
+    "german": "vergessen",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "pulire",
+    "german": "putzen",
+    "pos": "verb",
+    "conjugation_class": "ire_isc"
+  },
+  {
+    "italian": "mese",
+    "german": "Monat",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "settimana",
+    "german": "Woche",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "italian": "ora",
+    "german": "Stunde/Uhr",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "italian": "colazione",
+    "german": "Frühstück",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "italian": "pranzo",
+    "german": "Mittagessen",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "cena",
+    "german": "Abendessen",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "italian": "negozio",
+    "german": "Geschäft",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "mercato",
+    "german": "Markt",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "denaro",
+    "german": "Geld",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "stazione",
+    "german": "Bahnhof",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "italian": "aeroporto",
+    "german": "Flughafen",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "albergo",
+    "german": "Hotel",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "viaggio",
+    "german": "Reise",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "mare",
+    "german": "Meer",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "montagna",
+    "german": "Berg",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "italian": "cielo",
+    "german": "Himmel",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "sole",
+    "german": "Sonne",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "pioggia",
+    "german": "Regen",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "italian": "vestito",
+    "german": "Kleid/Anzug",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "scarpa",
+    "german": "Schuh",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "italian": "medico",
+    "german": "Arzt",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "ospedale",
+    "german": "Krankenhaus",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "problema",
+    "german": "Problem",
+    "pos": "noun",
+    "gender": "m",
+    "plural": "problemi"
+  },
+  {
+    "italian": "programma",
+    "german": "Programm",
+    "pos": "noun",
+    "gender": "m",
+    "plural": "programmi"
+  },
+  {
+    "italian": "caldo",
+    "german": "warm/heiß",
+    "pos": "adjective"
+  },
+  {
+    "italian": "freddo",
+    "german": "kalt",
+    "pos": "adjective"
+  },
+  {
+    "italian": "veloce",
+    "german": "schnell",
+    "pos": "adjective"
+  },
+  {
+    "italian": "lento",
+    "german": "langsam",
+    "pos": "adjective"
+  },
+  {
+    "italian": "giovane",
+    "german": "jung",
+    "pos": "adjective"
+  },
+  {
+    "italian": "libero",
+    "german": "frei",
+    "pos": "adjective"
+  },
+  {
+    "italian": "occupato",
+    "german": "beschäftigt",
+    "pos": "adjective"
+  },
+  {
+    "italian": "pronto",
+    "german": "bereit",
+    "pos": "adjective"
+  },
+  {
+    "italian": "sicuro",
+    "german": "sicher",
+    "pos": "adjective"
+  },
+  {
+    "italian": "importante",
+    "german": "wichtig",
+    "pos": "adjective"
+  },
+  {
+    "italian": "presto",
+    "german": "früh/bald",
+    "pos": "adverb"
+  },
+  {
+    "italian": "tardi",
+    "german": "spät",
+    "pos": "adverb"
+  },
+  {
+    "italian": "spesso",
+    "german": "oft",
+    "pos": "adverb"
+  },
+  {
+    "italian": "ancora",
+    "german": "noch",
+    "pos": "adverb"
+  },
+  {
+    "italian": "già",
+    "german": "schon",
+    "pos": "adverb"
+  },
+  {
+    "italian": "insieme",
+    "german": "zusammen",
+    "pos": "adverb"
+  },
+  {
+    "italian": "veramente",
+    "german": "wirklich",
+    "pos": "adverb"
+  }
+]

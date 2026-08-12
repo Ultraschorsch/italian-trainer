@@ -1,0 +1,335 @@
+[
+  {
+    "italian": "rimanere",
+    "german": "bleiben",
+    "pos": "verb",
+    "conjugation_class": "ere",
+    "irregular_forms": {
+      "presente": {
+        "io": "rimango",
+        "tu": "rimani",
+        "lui": "rimane",
+        "lei": "rimane",
+        "noi": "rimaniamo",
+        "voi": "rimanete",
+        "loro": "rimangono"
+      },
+      "futuro_semplice": {
+        "io": "rimarrò",
+        "tu": "rimarrai",
+        "lui": "rimarrà",
+        "lei": "rimarrà",
+        "noi": "rimarremo",
+        "voi": "rimarrete",
+        "loro": "rimarranno"
+      },
+      "condizionale_semplice": {
+        "io": "rimarrei",
+        "tu": "rimarresti",
+        "lui": "rimarrebbe",
+        "lei": "rimarrebbe",
+        "noi": "rimarremmo",
+        "voi": "rimarreste",
+        "loro": "rimarrebbero"
+      },
+      "passato_prossimo": {
+        "io": "sono rimasto",
+        "tu": "sei rimasto",
+        "lui": "è rimasto",
+        "lei": "è rimasta",
+        "noi": "siamo rimasti",
+        "voi": "siete rimasti",
+        "loro": "sono rimasti"
+      }
+    },
+    "example_it": "Rimango a casa.",
+    "example_de": "Ich bleibe zu Hause."
+  },
+  {
+    "italian": "tenere",
+    "german": "halten",
+    "pos": "verb",
+    "conjugation_class": "ere",
+    "irregular_forms": {
+      "presente": {
+        "io": "tengo",
+        "tu": "tieni",
+        "lui": "tiene",
+        "lei": "tiene",
+        "noi": "teniamo",
+        "voi": "tenete",
+        "loro": "tengono"
+      },
+      "futuro_semplice": {
+        "io": "terrò",
+        "tu": "terrai",
+        "lui": "terrà",
+        "lei": "terrà",
+        "noi": "terremo",
+        "voi": "terrete",
+        "loro": "terranno"
+      },
+      "condizionale_semplice": {
+        "io": "terrei",
+        "tu": "terresti",
+        "lui": "terrebbe",
+        "lei": "terrebbe",
+        "noi": "terremmo",
+        "voi": "terreste",
+        "loro": "terrebbero"
+      }
+    },
+    "example_it": "Tengo il telefono in mano.",
+    "example_de": "Ich halte das Telefon in der Hand."
+  },
+  {
+    "italian": "costruire",
+    "german": "bauen",
+    "pos": "verb",
+    "conjugation_class": "ire_isc"
+  },
+  {
+    "italian": "organizzare",
+    "german": "organisieren",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "continuare",
+    "german": "fortsetzen",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "cambiare",
+    "german": "ändern",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "provare",
+    "german": "versuchen/probieren",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "raccontare",
+    "german": "erzählen",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "consigliare",
+    "german": "empfehlen",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "permettere",
+    "german": "erlauben",
+    "pos": "verb",
+    "conjugation_class": "ere"
+  },
+  {
+    "italian": "succedere",
+    "german": "passieren",
+    "pos": "verb",
+    "conjugation_class": "ere"
+  },
+  {
+    "italian": "credere",
+    "german": "glauben",
+    "pos": "verb",
+    "conjugation_class": "ere"
+  },
+  {
+    "italian": "offrire",
+    "german": "anbieten",
+    "pos": "verb",
+    "conjugation_class": "ire"
+  },
+  {
+    "italian": "seguire",
+    "german": "folgen",
+    "pos": "verb",
+    "conjugation_class": "ire"
+  },
+  {
+    "italian": "aiutare",
+    "german": "helfen",
+    "pos": "verb",
+    "conjugation_class": "are"
+  },
+  {
+    "italian": "opinione",
+    "german": "Meinung",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "italian": "decisione",
+    "german": "Entscheidung",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "italian": "esperienza",
+    "german": "Erfahrung",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "italian": "progetto",
+    "german": "Projekt",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "riunione",
+    "german": "Besprechung",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "italian": "azienda",
+    "german": "Firma",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "italian": "governo",
+    "german": "Regierung",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "società",
+    "german": "Gesellschaft",
+    "pos": "noun",
+    "gender": "f",
+    "plural": "società"
+  },
+  {
+    "italian": "ambiente",
+    "german": "Umwelt",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "salute",
+    "german": "Gesundheit",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "italian": "cultura",
+    "german": "Kultur",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "italian": "relazione",
+    "german": "Beziehung",
+    "pos": "noun",
+    "gender": "f"
+  },
+  {
+    "italian": "obiettivo",
+    "german": "Ziel",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "risultato",
+    "german": "Ergebnis",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "motivo",
+    "german": "Grund",
+    "pos": "noun",
+    "gender": "m"
+  },
+  {
+    "italian": "qualità",
+    "german": "Qualität",
+    "pos": "noun",
+    "gender": "f",
+    "plural": "qualità"
+  },
+  {
+    "italian": "quantità",
+    "german": "Menge",
+    "pos": "noun",
+    "gender": "f",
+    "plural": "quantità"
+  },
+  {
+    "italian": "possibilità",
+    "german": "Möglichkeit",
+    "pos": "noun",
+    "gender": "f",
+    "plural": "possibilità"
+  },
+  {
+    "italian": "necessario",
+    "german": "notwendig",
+    "pos": "adjective"
+  },
+  {
+    "italian": "possibile",
+    "german": "möglich",
+    "pos": "adjective"
+  },
+  {
+    "italian": "diverso",
+    "german": "unterschiedlich",
+    "pos": "adjective"
+  },
+  {
+    "italian": "comune",
+    "german": "gemeinsam/üblich",
+    "pos": "adjective"
+  },
+  {
+    "italian": "attuale",
+    "german": "aktuell",
+    "pos": "adjective"
+  },
+  {
+    "italian": "capace",
+    "german": "fähig",
+    "pos": "adjective"
+  },
+  {
+    "italian": "preciso",
+    "german": "genau",
+    "pos": "adjective"
+  },
+  {
+    "italian": "gentile",
+    "german": "freundlich",
+    "pos": "adjective"
+  },
+  {
+    "italian": "probabilmente",
+    "german": "wahrscheinlich",
+    "pos": "adverb"
+  },
+  {
+    "italian": "infatti",
+    "german": "tatsächlich",
+    "pos": "adverb"
+  },
+  {
+    "italian": "comunque",
+    "german": "jedenfalls",
+    "pos": "adverb"
+  },
+  {
+    "italian": "purtroppo",
+    "german": "leider",
+    "pos": "adverb"
+  }
+]

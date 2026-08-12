@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}Profil wählen – Passaporto Italiano{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>Willkommen! 👋</h1>
+  <p class="muted">
+    {% if has_sso %}
+      Du bist über SSO angemeldet, aber es existiert noch kein Profil für dich. Leg eins an:
+    {% else %}
+      Es wurde kein Profil-Cookie gefunden. Leg ein neues lokales Profil an oder wechsle zu einem bestehenden.
+    {% endif %}
+  </p>
+
+  <form method="post" action="/profiles/create">
+    <div class="grid" style="grid-template-columns: 2fr 1fr;">
+      <div>
+        <label for="display_name">Dein Name</label><br />
+        <input type="text" id="display_name" name="display_name" placeholder="z. B. Jan" required style="width:100%; margin-top:0.3rem;" />
+      </div>
+      <div>
+        <label for="target_level">Startlevel</label><br />
+        <select id="target_level" name="target_level" style="width:100%; margin-top:0.3rem;">
+          {% for level in levels %}
+          <option value="{{ level }}" {% if level == "A1" %}selected{% endif %}>{{ level }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+    <div style="margin-top:1rem;">
+      <button type="submit">Profil anlegen</button>
+    </div>
+  </form>
+</div>
+
+{% if not has_sso %}
+<div class="card">
+  <h2>Bereits ein lokales Profil?</h2>
+  <p class="muted">Falls du (oder deine Frau) schon ein Profil auf diesem Gerät/Browser angelegt habt, aber das Cookie fehlt: lokale Profil-ID hier eintragen. Die ID findet ihr aktuell nur, indem ihr sie euch beim Anlegen notiert – bei Bedarf baue ich dafür gerne noch eine komfortablere Übersicht.</p>
+  <form method="post" action="/profiles/switch-local" class="inline">
+    <input type="text" name="local_id" placeholder="Lokale Profil-ID" required />
+    <button type="submit" class="secondary">Wechseln</button>
+  </form>
+</div>
+{% endif %}
+{% endblock %}

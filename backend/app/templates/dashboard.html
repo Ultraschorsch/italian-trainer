@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Dashboard – Passaporto Italiano{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>Ciao, {{ profile.display_name }}! <span class="level-badge">{{ profile.target_level }}</span></h1>
+  <p class="muted">Bereit für eine Runde Vokabeln und Grammatik?</p>
+  <div class="grid" style="grid-template-columns: repeat(2, 1fr);">
+    <a class="btn" href="/review" style="text-align:center;">Jetzt üben →</a>
+    <a class="btn secondary" href="/timeline" style="text-align:center;">Fortschritt ansehen</a>
+  </div>
+</div>
+
+<div class="card">
+  <h2>Lernlevel anpassen</h2>
+  <p class="muted">Bestimmt, aus welchem Wortschatz (bis zu diesem Niveau) neue Übungen gezogen werden.</p>
+  <form method="post" action="/profiles/update-level" class="inline">
+    <select name="target_level">
+      {% for level in levels %}
+      <option value="{{ level }}" {% if level == profile.target_level %}selected{% endif %}>{{ level }}</option>
+      {% endfor %}
+    </select>
+    <button type="submit">Speichern</button>
+  </form>
+</div>
+
+<div class="card">
+  <h2>Eigene Vokabeln importieren</h2>
+  <p class="muted">
+    CSV mit Kopfzeile <code>italian,german,pos,level,gender,plural,conjugation_class,example_it,example_de</code>.
+    Pflichtfelder: <code>italian, german, pos, level</code>. <code>pos</code> &isin; {noun, verb, adjective, adverb, other}.
+  </p>
+  <form method="post" action="/vocab/import" enctype="multipart/form-data" class="inline">
+    <input type="file" name="file" accept=".csv" required />
+    <button type="submit">Importieren</button>
+  </form>
+  {% if request.query_params.get("import_added") %}
+  <p class="muted" style="margin-top:0.6rem;">
+    Import abgeschlossen: {{ request.query_params.get("import_added") }} neu hinzugefügt,
+    {{ request.query_params.get("import_skipped") }} übersprungen (bereits vorhanden oder unvollständig).
+  </p>
+  {% endif %}
+</div>
+{% endblock %}
