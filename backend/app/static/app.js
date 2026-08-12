@@ -25,15 +25,99 @@ async function fetchJSON(url, options) {
   return res.json();
 }
 
-// ---------------- Review-Seite ----------------
+// ---------------- Review-Seite / Lektionen ----------------
+
+let lessonState = null; // { length, index, correct, mistakes: [{question, expected}] }
+
+function buildInstruction(payload) {
+  switch (payload.exercise_type) {
+    case "translation":
+      return payload.direction === "de_to_it" ? "Übersetze ins Italienische:" : "Übersetze ins Deutsche:";
+    case "conjugation": {
+      const tense = payload.tense_label || payload.tense || "";
+      return `Konjugiere im ${tense}, Person „${payload.person}“:`;
+    }
+    case "article":
+      return payload.plural ? "Nenne den bestimmten Artikel (Plural):" : "Nenne den bestimmten Artikel (Singular):";
+    case "plural":
+      return "Bilde den Plural:";
+    default:
+      return "Deine Aufgabe:";
+  }
+}
 
 function initReview() {
   const root = document.getElementById("review-root");
   if (!root) return;
-  loadNextExercise(root);
+  showLessonChooser(root);
+}
+
+function showLessonChooser(root) {
+  root.innerHTML = "";
+  root.appendChild(el("h2", { text: "Neue Lektion starten" }));
+  root.appendChild(
+    el("p", {
+      class: "muted",
+      text: "Wähl, wie viele Aufgaben die Lektion haben soll. Du siehst dabei immer, wie weit du bist, und am Ende gibt's eine Auswertung.",
+    })
+  );
+  const row = el("div", { class: "grid", style: "grid-template-columns: repeat(3, 1fr);" });
+  [5, 10, 20].forEach((n) => {
+    const btn = el("button", { text: `${n} Aufgaben` });
+    btn.addEventListener("click", () => {
+      lessonState = { length: n, index: 0, correct: 0, mistakes: [] };
+      loadNextExercise(root);
+    });
+    row.appendChild(btn);
+  });
+  root.appendChild(row);
+}
+
+function showLessonSummary(root) {
+  const { length, correct, mistakes } = lessonState;
+  const pct = length ? Math.round((correct / length) * 100) : 0;
+  root.innerHTML = "";
+  root.appendChild(el("h2", { text: "Lektion abgeschlossen! 🎉" }));
+  root.appendChild(el("p", { text: `${correct} von ${length} richtig (${pct} %).` }));
+
+  if (mistakes.length) {
+    root.appendChild(el("h3", { text: "Zum Wiederholen:" }));
+    const list = el("ul", {});
+    mistakes.forEach((m) => {
+      list.appendChild(el("li", { text: `${m.question} → ${m.expected}` }));
+    });
+    root.appendChild(list);
+  } else {
+    root.appendChild(el("p", { class: "muted", text: "Alles richtig – stark! 💪" }));
+  }
+
+  const again = el("button", { text: "Neue Lektion starten", style: "margin-top:1rem;" });
+  again.addEventListener("click", () => {
+    lessonState = null;
+    showLessonChooser(root);
+  });
+  root.appendChild(again);
+}
+
+function renderLessonProgress(root) {
+  if (!lessonState) return;
+  const { length, index } = lessonState;
+  const pct = Math.round((index / length) * 100);
+  const wrap = el("div", { style: "margin-bottom:1.2rem;" });
+  wrap.appendChild(
+    el("div", { class: "muted", style: "margin-bottom:0.3rem;", text: `Aufgabe ${index + 1} von ${length}` })
+  );
+  const track = el("div", { class: "track" });
+  track.appendChild(el("div", { class: "fill", style: `width:${pct}%` }));
+  wrap.appendChild(track);
+  root.appendChild(wrap);
 }
 
 async function loadNextExercise(root) {
+  if (lessonState && lessonState.index >= lessonState.length) {
+    showLessonSummary(root);
+    return;
+  }
   root.innerHTML = '<p class="muted">Lade nächste Übung …</p>';
   let payload;
   try {
@@ -44,6 +128,7 @@ async function loadNextExercise(root) {
   }
 
   if (payload.done) {
+    lessonState = null;
     root.innerHTML = `<p class="muted">${payload.message || "Für dieses Level ist aktuell nichts fällig oder vorhanden."}</p>`;
     return;
   }
@@ -53,13 +138,14 @@ async function loadNextExercise(root) {
 
 function renderExercise(root, payload) {
   root.innerHTML = "";
+  renderLessonProgress(root);
 
   const badge = el("span", { class: "level-badge", text: payload.level });
   const type = el("span", {
     class: "muted",
     text: "  " + (EXERCISE_LABELS[payload.exercise_type] || payload.exercise_type),
   });
-  const hintLine = el("div", { class: "exercise-hint", text: payload.hint || "" });
+  const hintLine = el("div", { class: "exercise-hint", text: buildInstruction(payload) });
   const question = el("div", { class: "exercise-question", text: payload.question });
 
   const form = el("form", { class: "inline" });
@@ -102,6 +188,15 @@ function renderExercise(root, payload) {
       return;
     }
 
+    if (lessonState) {
+      lessonState.index += 1;
+      if (result.correct) {
+        lessonState.correct += 1;
+      } else {
+        lessonState.mistakes.push({ question: payload.question, expected: result.expected_answer });
+      }
+    }
+
     const box = el("div", { class: "feedback " + (result.correct ? "correct" : "wrong") });
     box.appendChild(
       el("div", { text: result.correct ? "Richtig! ✓" : `Nicht ganz. Richtig wäre: „${result.expected_answer}“` })
@@ -132,7 +227,8 @@ function renderExercise(root, payload) {
     }
 
     input.disabled = true;
-    submitBtn.textContent = "Weiter →";
+    const isLastInLesson = lessonState && lessonState.index >= lessonState.length;
+    submitBtn.textContent = isLastInLesson ? "Auswertung ansehen →" : "Weiter →";
     submitBtn.disabled = false;
     answered = true;
   });
