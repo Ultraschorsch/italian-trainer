@@ -33,6 +33,10 @@ class Settings:
     llm_model: str = os.getenv("LLM_MODEL", "llama3.1")
     llm_timeout_seconds: float = float(os.getenv("LLM_TIMEOUT_SECONDS", "30"))
 
+    # Bei falscher Antwort automatisch eine KI-Erklärung nachladen (kein
+    # manuelles Klicken/Tippen nötig). Erfordert llm_enabled; sonst ohne Effekt.
+    auto_explain_on_wrong: bool = os.getenv("AUTO_EXPLAIN_ON_WRONG", "true").lower() == "true"
+
     @property
     def llm_enabled(self) -> bool:
         return bool(self.llm_base_url)

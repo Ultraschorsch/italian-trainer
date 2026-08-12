@@ -2,7 +2,7 @@
 {% block title %}Üben – Passaporto Italiano{% endblock %}
 {% block content %}
 <div class="card">
-  <div id="review-root" data-llm-enabled="{{ 'true' if llm_enabled else 'false' }}">
+  <div id="review-root" data-llm-enabled="{{ 'true' if llm_enabled else 'false' }}" data-auto-explain="{{ 'true' if auto_explain else 'false' }}">
     <p class="muted">Lade …</p>
   </div>
 </div>

@@ -123,7 +123,12 @@ function renderExercise(root, payload) {
         person: payload.person,
         direction: payload.direction,
       };
-      feedbackHolder.appendChild(buildInlineAskWidget(payload.lexeme_id, payload.exercise_type, context));
+      const autoExplain = root.dataset.autoExplain === "true";
+      if (!result.correct && autoExplain) {
+        feedbackHolder.appendChild(buildAutoExplainWidget(payload.lexeme_id, payload.exercise_type, context));
+      } else {
+        feedbackHolder.appendChild(buildInlineAskWidget(payload.lexeme_id, payload.exercise_type, context));
+      }
     }
 
     input.disabled = true;
@@ -241,6 +246,57 @@ function renderChatMessages(container, messages) {
     );
   });
   container.scrollTop = container.scrollHeight;
+}
+
+// Wird bei falscher Antwort automatisch aufgerufen (kein Klick/Tippen nötig):
+// lädt sofort eine KI-Erklärung und erlaubt danach weitere Rückfragen.
+function buildAutoExplainWidget(lexemeId, exerciseType, context) {
+  const wrap = el("div", { class: "ask-widget" });
+  const heading = el("div", { class: "muted", text: "🤖 KI-Erklärung:" });
+  const messagesBox = el("div", { class: "chat-messages small" });
+  const form = el("form", { class: "inline", style: "margin-top:0.5rem;" });
+  const input = el("input", { type: "text", placeholder: "Noch eine Rückfrage …", autocomplete: "off" });
+  const sendBtn = el("button", { type: "submit", text: "Senden" });
+  form.appendChild(input);
+  form.appendChild(sendBtn);
+
+  messagesBox.innerHTML = '<p class="muted">… erklärt gerade …</p>';
+
+  let threadId = null;
+
+  (async () => {
+    try {
+      const data = await askStart(lexemeId, exerciseType, context);
+      threadId = data.thread_id;
+      const result = await askSend(threadId, "Warum genau ist meine Antwort falsch? Kurz erklären.");
+      renderChatMessages(messagesBox, result.messages);
+    } catch (err) {
+      messagesBox.innerHTML = `<p class="feedback wrong">Fehler: ${err.message}</p>`;
+    }
+  })();
+
+  form.addEventListener("submit", async (ev) => {
+    ev.preventDefault();
+    const text = input.value.trim();
+    if (!text || !threadId) return;
+    input.value = "";
+    sendBtn.disabled = true;
+    messagesBox.appendChild(el("div", { class: "chat-bubble chat-user" }, [el("div", { text })]));
+    messagesBox.appendChild(el("p", { class: "muted", text: "… denkt nach …" }));
+    try {
+      const data = await askSend(threadId, text);
+      renderChatMessages(messagesBox, data.messages);
+    } catch (err) {
+      messagesBox.innerHTML += `<p class="feedback wrong">Fehler: ${err.message}</p>`;
+    }
+    sendBtn.disabled = false;
+    input.focus();
+  });
+
+  wrap.appendChild(heading);
+  wrap.appendChild(messagesBox);
+  wrap.appendChild(form);
+  return wrap;
 }
 
 function buildInlineAskWidget(lexemeId, exerciseType, context) {

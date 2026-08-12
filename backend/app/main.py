@@ -53,7 +53,13 @@ def review_page(request: Request, db: Session = Depends(get_db)):
     if not profile:
         return templates.TemplateResponse("profile_select.html", {"request": request, "levels": LEVELS, "has_sso": False})
     return templates.TemplateResponse(
-        "review.html", {"request": request, "profile": profile, "llm_enabled": settings.llm_enabled}
+        "review.html",
+        {
+            "request": request,
+            "profile": profile,
+            "llm_enabled": settings.llm_enabled,
+            "auto_explain": settings.auto_explain_on_wrong,
+        },
     )
 
 
