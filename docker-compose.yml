@@ -1,0 +1,41 @@
+services:
+  app:
+    build: ./backend
+    container_name: italian-trainer-app
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgresql+psycopg2://${POSTGRES_USER:-italian}:${POSTGRES_PASSWORD:-italian}@db:5432/${POSTGRES_DB:-italian_trainer}
+      SSO_HEADER_NAME: ${SSO_HEADER_NAME:-Remote-User}
+      ALLOW_LOCAL_PROFILE_PICKER: ${ALLOW_LOCAL_PROFILE_PICKER:-true}
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - default
+    # Traefik-Labels nach eurem bestehenden Muster (Pangolin routet über Docker-Provider).
+    # Port ggf. anpassen; SSO-Gate läuft über die Pangolin-Resource/Platform-SSO davor.
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.italian-trainer.rule=Host(`italienisch.DEINE-DOMAIN.tld`)"
+      - "traefik.http.routers.italian-trainer.entrypoints=websecure"
+      - "traefik.http.routers.italian-trainer.tls=true"
+      - "traefik.http.services.italian-trainer.loadbalancer.server.port=8000"
+
+  db:
+    image: postgres:16-alpine
+    container_name: italian-trainer-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-italian}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-italian}
+      POSTGRES_DB: ${POSTGRES_DB:-italian_trainer}
+    volumes:
+      - italian_trainer_db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-italian}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  italian_trainer_db:
