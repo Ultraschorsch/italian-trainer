@@ -11,19 +11,16 @@ services:
       LLM_API_KEY: ${LLM_API_KEY:-}
       LLM_MODEL: ${LLM_MODEL:-llama3.1}
       LLM_TIMEOUT_SECONDS: ${LLM_TIMEOUT_SECONDS:-30}
+    ports:
+      - "8090:8000"
     depends_on:
       db:
         condition: service_healthy
     networks:
       - default
-    # Traefik-Labels nach eurem bestehenden Muster (Pangolin routet über Docker-Provider).
-    # Port ggf. anpassen; SSO-Gate läuft über die Pangolin-Resource/Platform-SSO davor.
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.italian-trainer.rule=Host(`italienisch.DEINE-DOMAIN.tld`)"
-      - "traefik.http.routers.italian-trainer.entrypoints=websecure"
-      - "traefik.http.routers.italian-trainer.tls=true"
-      - "traefik.http.services.italian-trainer.loadbalancer.server.port=8000"
+    # Kein lokales Traefik auf CT 102 -- Freigabe läuft wie bei den anderen
+    # Diensten (pocket-id, open-webui) über einen gepublishten Host-Port +
+    # eine Pangolin-Resource (Newt registriert 192.168.1.184:8090 als Target).
 
   db:
     image: postgres:16-alpine
