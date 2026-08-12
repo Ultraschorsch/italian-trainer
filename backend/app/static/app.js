@@ -29,6 +29,13 @@ async function fetchJSON(url, options) {
 
 let lessonState = null; // { length, index, correct, mistakes: [{question, expected}] }
 
+const INSTRUCTION_ICONS = {
+  translation: "🔤",
+  conjugation: "🔁",
+  article: "📎",
+  plural: "➕",
+};
+
 function buildInstruction(payload) {
   switch (payload.exercise_type) {
     case "translation":
@@ -145,7 +152,10 @@ function renderExercise(root, payload) {
     class: "muted",
     text: "  " + (EXERCISE_LABELS[payload.exercise_type] || payload.exercise_type),
   });
-  const hintLine = el("div", { class: "exercise-hint", text: buildInstruction(payload) });
+  const hintLine = el("div", { class: "instruction-banner" }, [
+    el("span", { class: "icon", text: INSTRUCTION_ICONS[payload.exercise_type] || "❓" }),
+    el("span", { text: buildInstruction(payload) }),
+  ]);
   const question = el("div", { class: "exercise-question", text: payload.question });
 
   const form = el("form", { class: "inline" });
