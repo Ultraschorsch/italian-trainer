@@ -112,6 +112,20 @@ function renderExercise(root, payload) {
     feedbackHolder.innerHTML = "";
     feedbackHolder.appendChild(box);
 
+    if (root.dataset.llmEnabled === "true") {
+      const context = {
+        question: payload.question,
+        hint: payload.hint,
+        given_answer: input.value,
+        expected_answer: result.expected_answer,
+        explanation: result.explanation,
+        tense: payload.tense_label || payload.tense,
+        person: payload.person,
+        direction: payload.direction,
+      };
+      feedbackHolder.appendChild(buildInlineAskWidget(payload.lexeme_id, payload.exercise_type, context));
+    }
+
     input.disabled = true;
     submitBtn.textContent = "Weiter →";
     submitBtn.disabled = false;
@@ -195,7 +209,171 @@ async function initTimeline() {
   }
 }
 
+// ---------------- KI-Rückfragen (gemeinsam für Review-Button & Chat-Seite) ----------------
+
+async function askStart(lexemeId, exerciseType, context) {
+  return fetchJSON("/ask/start", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ lexeme_id: lexemeId, exercise_type: exerciseType, context: context || null }),
+  });
+}
+
+async function askSend(threadId, message) {
+  return fetchJSON("/ask/message", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ thread_id: threadId, message }),
+  });
+}
+
+function renderChatMessages(container, messages) {
+  container.innerHTML = "";
+  if (!messages.length) {
+    container.appendChild(el("p", { class: "muted", text: "Stell ruhig eine Frage – z. B. „Warum genau diese Form?“" }));
+    return;
+  }
+  messages.forEach((m) => {
+    container.appendChild(
+      el("div", { class: "chat-bubble " + (m.role === "user" ? "chat-user" : "chat-assistant") }, [
+        el("div", { text: m.content }),
+      ])
+    );
+  });
+  container.scrollTop = container.scrollHeight;
+}
+
+function buildInlineAskWidget(lexemeId, exerciseType, context) {
+  const wrap = el("div", { class: "ask-widget" });
+  const toggleBtn = el("button", { type: "button", class: "secondary", text: "Warum genau? KI fragen" });
+  const panel = el("div", { style: "display:none; margin-top:0.8rem;" });
+  const messagesBox = el("div", { class: "chat-messages small" });
+  const form = el("form", { class: "inline" });
+  const input = el("input", { type: "text", placeholder: "Deine Frage …", autocomplete: "off" });
+  const sendBtn = el("button", { type: "submit", text: "Senden" });
+  form.appendChild(input);
+  form.appendChild(sendBtn);
+  panel.appendChild(messagesBox);
+  panel.appendChild(form);
+
+  let threadId = null;
+  let opened = false;
+
+  toggleBtn.addEventListener("click", async () => {
+    if (opened) {
+      panel.style.display = panel.style.display === "none" ? "block" : "none";
+      return;
+    }
+    opened = true;
+    panel.style.display = "block";
+    messagesBox.innerHTML = '<p class="muted">Lade Chat …</p>';
+    try {
+      const data = await askStart(lexemeId, exerciseType, context);
+      threadId = data.thread_id;
+      renderChatMessages(messagesBox, data.messages);
+    } catch (err) {
+      messagesBox.innerHTML = `<p class="feedback wrong">Fehler: ${err.message}</p>`;
+    }
+  });
+
+  form.addEventListener("submit", async (ev) => {
+    ev.preventDefault();
+    const text = input.value.trim();
+    if (!text || !threadId) return;
+    input.value = "";
+    sendBtn.disabled = true;
+    messagesBox.appendChild(el("div", { class: "chat-bubble chat-user" }, [el("div", { text })]));
+    messagesBox.appendChild(el("p", { class: "muted", text: "… denkt nach …" }));
+    try {
+      const data = await askSend(threadId, text);
+      renderChatMessages(messagesBox, data.messages);
+    } catch (err) {
+      messagesBox.innerHTML += `<p class="feedback wrong">Fehler: ${err.message}</p>`;
+    }
+    sendBtn.disabled = false;
+    input.focus();
+  });
+
+  wrap.appendChild(toggleBtn);
+  wrap.appendChild(panel);
+  return wrap;
+}
+
+// ---------------- Chat-Seite (/chat) ----------------
+
+function initAskPage() {
+  const searchInput = document.getElementById("vocab-search");
+  if (!searchInput) return;
+
+  const resultsBox = document.getElementById("vocab-results");
+  const chatCard = document.getElementById("chat-card");
+  const chatTitle = document.getElementById("chat-title");
+  const chatMessages = document.getElementById("chat-messages");
+  const chatForm = document.getElementById("chat-form");
+  const chatInput = document.getElementById("chat-input");
+
+  let debounceTimer = null;
+  let currentThreadId = null;
+
+  searchInput.addEventListener("input", () => {
+    clearTimeout(debounceTimer);
+    const q = searchInput.value.trim();
+    if (q.length < 2) {
+      resultsBox.innerHTML = "";
+      return;
+    }
+    debounceTimer = setTimeout(async () => {
+      let results;
+      try {
+        results = await fetchJSON("/vocab/search?q=" + encodeURIComponent(q));
+      } catch (err) {
+        resultsBox.innerHTML = `<p class="feedback wrong">Fehler: ${err.message}</p>`;
+        return;
+      }
+      resultsBox.innerHTML = "";
+      if (!results.length) {
+        resultsBox.appendChild(el("p", { class: "muted", text: "Keine Treffer." }));
+        return;
+      }
+      results.forEach((r) => {
+        const link = el("a", { href: "#", text: `${r.italian} — ${r.german} (${r.level})` });
+        link.addEventListener("click", async (ev) => {
+          ev.preventDefault();
+          chatCard.style.display = "block";
+          chatTitle.textContent = `${r.italian} — ${r.german}`;
+          chatMessages.innerHTML = '<p class="muted">Lade Chat …</p>';
+          try {
+            const data = await askStart(r.id, null, null);
+            currentThreadId = data.thread_id;
+            renderChatMessages(chatMessages, data.messages);
+          } catch (err) {
+            chatMessages.innerHTML = `<p class="feedback wrong">Fehler: ${err.message}</p>`;
+          }
+        });
+        resultsBox.appendChild(link);
+      });
+    }, 300);
+  });
+
+  chatForm.addEventListener("submit", async (ev) => {
+    ev.preventDefault();
+    const text = chatInput.value.trim();
+    if (!text || !currentThreadId) return;
+    chatInput.value = "";
+    chatMessages.appendChild(el("div", { class: "chat-bubble chat-user" }, [el("div", { text })]));
+    chatMessages.appendChild(el("p", { class: "muted", text: "… denkt nach …" }));
+    try {
+      const data = await askSend(currentThreadId, text);
+      renderChatMessages(chatMessages, data.messages);
+    } catch (err) {
+      chatMessages.innerHTML += `<p class="feedback wrong">Fehler: ${err.message}</p>`;
+    }
+    chatInput.focus();
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   initReview();
   initTimeline();
+  initAskPage();
 });

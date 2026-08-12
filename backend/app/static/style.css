@@ -164,3 +164,35 @@ button.secondary:hover { background: var(--accent-dark); color: #fff; }
 .level-bars .row .count { width: 2.5rem; text-align: right; font-size: 0.85rem; color: var(--muted); }
 
 footer.note { text-align: center; color: var(--muted); font-size: 0.8rem; margin-top: 2rem; }
+
+.ask-widget { margin-top: 0.8rem; }
+
+.chat-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-height: 340px;
+  overflow-y: auto;
+  padding: 0.4rem 0.1rem;
+}
+.chat-messages.small { max-height: 220px; }
+
+.chat-bubble {
+  max-width: 85%;
+  padding: 0.55rem 0.8rem;
+  border-radius: 12px;
+  font-size: 0.92rem;
+  white-space: pre-wrap;
+}
+.chat-bubble.chat-user {
+  align-self: flex-end;
+  background: var(--accent);
+  color: #fff;
+  border-bottom-right-radius: 3px;
+}
+.chat-bubble.chat-assistant {
+  align-self: flex-start;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-bottom-left-radius: 3px;
+}

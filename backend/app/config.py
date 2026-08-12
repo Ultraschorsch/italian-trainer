@@ -22,5 +22,20 @@ class Settings:
 
     session_cookie_name: str = "italian_trainer_profile"
 
+    # KI-Rückfragen (optional). LLM_BASE_URL erwartet die VOLLSTÄNDIGE
+    # Chat-Completions-URL (OpenAI-kompatibles Format), z.B.:
+    #   OpenWebUI:  http://openwebui:8080/api/chat/completions
+    #   OpenRouter: https://openrouter.ai/api/v1/chat/completions
+    # Ist LLM_BASE_URL leer, ist das Feature deaktiviert (Buttons erscheinen
+    # nicht bzw. liefern eine verständliche Fehlermeldung).
+    llm_base_url: str = os.getenv("LLM_BASE_URL", "")
+    llm_api_key: str = os.getenv("LLM_API_KEY", "")
+    llm_model: str = os.getenv("LLM_MODEL", "llama3.1")
+    llm_timeout_seconds: float = float(os.getenv("LLM_TIMEOUT_SECONDS", "30"))
+
+    @property
+    def llm_enabled(self) -> bool:
+        return bool(self.llm_base_url)
+
 
 settings = Settings()

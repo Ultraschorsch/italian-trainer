@@ -6,7 +6,8 @@ from sqlalchemy.orm import Session
 
 from .database import get_db, Base, engine
 from .auth import get_current_profile, resolve_external_id
-from .routers import profiles, review, stats, vocab_import
+from .routers import profiles, review, stats, vocab_import, ask
+from .config import settings
 from . import seed
 
 app = FastAPI(title="Italienisch-Trainer")
@@ -18,6 +19,7 @@ app.include_router(profiles.router)
 app.include_router(review.router)
 app.include_router(stats.router)
 app.include_router(vocab_import.router)
+app.include_router(ask.router)
 
 LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"]
 
@@ -41,7 +43,7 @@ def index(request: Request, db: Session = Depends(get_db)):
 
     return templates.TemplateResponse(
         "dashboard.html",
-        {"request": request, "profile": profile, "levels": LEVELS},
+        {"request": request, "profile": profile, "levels": LEVELS, "llm_enabled": settings.llm_enabled},
     )
 
 
@@ -50,7 +52,19 @@ def review_page(request: Request, db: Session = Depends(get_db)):
     profile = get_current_profile(request, db)
     if not profile:
         return templates.TemplateResponse("profile_select.html", {"request": request, "levels": LEVELS, "has_sso": False})
-    return templates.TemplateResponse("review.html", {"request": request, "profile": profile})
+    return templates.TemplateResponse(
+        "review.html", {"request": request, "profile": profile, "llm_enabled": settings.llm_enabled}
+    )
+
+
+@app.get("/chat", response_class=HTMLResponse)
+def chat_page(request: Request, db: Session = Depends(get_db)):
+    profile = get_current_profile(request, db)
+    if not profile:
+        return templates.TemplateResponse("profile_select.html", {"request": request, "levels": LEVELS, "has_sso": False})
+    return templates.TemplateResponse(
+        "ask.html", {"request": request, "profile": profile, "llm_enabled": settings.llm_enabled}
+    )
 
 
 @app.get("/timeline", response_class=HTMLResponse)

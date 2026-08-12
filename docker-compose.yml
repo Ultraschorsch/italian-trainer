@@ -7,6 +7,10 @@ services:
       DATABASE_URL: postgresql+psycopg2://${POSTGRES_USER:-italian}:${POSTGRES_PASSWORD:-italian}@db:5432/${POSTGRES_DB:-italian_trainer}
       SSO_HEADER_NAME: ${SSO_HEADER_NAME:-Remote-User}
       ALLOW_LOCAL_PROFILE_PICKER: ${ALLOW_LOCAL_PROFILE_PICKER:-true}
+      LLM_BASE_URL: ${LLM_BASE_URL:-}
+      LLM_API_KEY: ${LLM_API_KEY:-}
+      LLM_MODEL: ${LLM_MODEL:-llama3.1}
+      LLM_TIMEOUT_SECONDS: ${LLM_TIMEOUT_SECONDS:-30}
     depends_on:
       db:
         condition: service_healthy

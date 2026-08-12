@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}KI-Chat – Passaporto Italiano{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>KI-Chat</h1>
+  {% if not llm_enabled %}
+  <p class="feedback wrong">
+    Kein KI-Backend konfiguriert. Setzt <code>LLM_BASE_URL</code> (und ggf. <code>LLM_API_KEY</code>, <code>LLM_MODEL</code>) in der <code>.env</code>, z. B. auf eure OpenWebUI-Instanz.
+  </p>
+  {% else %}
+  <p class="muted">Vokabel suchen und mehrstufig nachfragen – der Chat merkt sich den Kontext pro Vokabel.</p>
+  <input type="text" id="vocab-search" placeholder="Vokabel suchen (italienisch oder deutsch) …" style="width:100%;" />
+  <div id="vocab-results" class="profile-list" style="margin-top:0.6rem;"></div>
+  {% endif %}
+</div>
+
+<div class="card" id="chat-card" style="display:none;">
+  <h2 id="chat-title"></h2>
+  <div id="chat-messages" class="chat-messages"></div>
+  <form id="chat-form" class="inline" style="margin-top:0.8rem;">
+    <input type="text" id="chat-input" placeholder="Deine Frage …" autocomplete="off" />
+    <button type="submit">Senden</button>
+  </form>
+</div>
+{% endblock %}

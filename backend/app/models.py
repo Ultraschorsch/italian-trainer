@@ -89,3 +89,44 @@ class Attempt(Base):
     created_at = Column(DateTime, default=datetime.datetime.utcnow, index=True)
 
     profile = relationship("Profile", back_populates="attempts")
+
+
+class AskThread(Base):
+    """Ein Rückfrage-Chat-Thread zu genau einer Vokabel (mehrstufig, mit
+    Kontext). Wird sowohl vom 'Warum?'-Button nach einer Übung als auch vom
+    freien Vokabel-Chat verwendet. exercise_type=None -> freier Chat ohne
+    konkreten Übungs-Bezug; sonst an die zuletzt gestellte Übungsart gebunden."""
+    __tablename__ = "ask_threads"
+
+    id = Column(String, primary_key=True, default=_uuid)
+    profile_id = Column(String, ForeignKey("profiles.id"), nullable=False, index=True)
+    lexeme_id = Column(String, ForeignKey("lexemes.id"), nullable=False, index=True)
+    exercise_type = Column(String, nullable=True)
+    # Schnappschuss der Übungssituation zum Zeitpunkt der Threaderstellung
+    # (question, given_answer, expected_answer, explanation, tense, person, ...)
+    seed_context = Column(JSON, nullable=True)
+    created_at = Column(DateTime, default=datetime.datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.datetime.utcnow)
+
+    profile = relationship("Profile")
+    lexeme = relationship("Lexeme")
+    messages = relationship(
+        "AskMessage", back_populates="thread", cascade="all, delete-orphan",
+        order_by="AskMessage.created_at",
+    )
+
+    __table_args__ = (
+        UniqueConstraint("profile_id", "lexeme_id", "exercise_type", name="uq_ask_thread_scope"),
+    )
+
+
+class AskMessage(Base):
+    __tablename__ = "ask_messages"
+
+    id = Column(String, primary_key=True, default=_uuid)
+    thread_id = Column(String, ForeignKey("ask_threads.id"), nullable=False, index=True)
+    role = Column(String, nullable=False)  # user | assistant
+    content = Column(Text, nullable=False)
+    created_at = Column(DateTime, default=datetime.datetime.utcnow)
+
+    thread = relationship("AskThread", back_populates="messages")
