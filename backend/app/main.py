@@ -1,3 +1,5 @@
+import time
+
 from fastapi import FastAPI, Request, Depends
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
@@ -12,8 +14,14 @@ from . import seed
 
 app = FastAPI(title="Italienisch-Trainer")
 
+# Aendert sich bei jedem Container-Start -> zwingt Browser, nach einem
+# Deploy geaenderte /static-Dateien neu zu laden statt eine alte
+# gecachte Version weiterzuverwenden.
+ASSET_VERSION = str(int(time.time()))
+
 app.mount("/static", StaticFiles(directory="app/static"), name="static")
 templates = Jinja2Templates(directory="app/templates")
+templates.env.globals["asset_version"] = ASSET_VERSION
 
 app.include_router(profiles.router)
 app.include_router(review.router)
