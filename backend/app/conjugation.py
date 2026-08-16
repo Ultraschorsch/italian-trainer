@@ -76,6 +76,13 @@ def _stem(infinitive: str) -> str:
     return infinitive[:-3]
 
 
+REFLEXIVE_PRONOUNS = {"io": "mi", "tu": "ti", "lui": "si", "lei": "si", "noi": "ci", "voi": "vi", "loro": "si"}
+
+
+def is_reflexive(infinitive: str) -> bool:
+    return infinitive.endswith("si") and len(infinitive) > 4
+
+
 def conjugate(
     infinitive: str,
     tense: str,
@@ -90,6 +97,35 @@ def conjugate(
 
     if irregular_forms and tense in irregular_forms and person in irregular_forms[tense]:
         return irregular_forms[tense][person]
+
+    if is_reflexive(infinitive):
+        pronoun = REFLEXIVE_PRONOUNS[person]
+        base_infinitive = infinitive[:-2] + "e"  # "svegliarsi" -> "svegliare"
+        cls = conjugation_class(base_infinitive, conj_class)
+        stem = _stem(base_infinitive)
+        idx = PERSONS.index(person)
+
+        if tense == "presente":
+            return f"{pronoun} {stem + _PRESENTE_ENDINGS[cls][idx]}"
+        if tense == "imperfetto":
+            return f"{pronoun} {stem + _IMPERFETTO_ENDINGS[cls][idx]}"
+        if tense == "futuro_semplice":
+            fut_stem = (stem + "er") if cls == "are" else base_infinitive[:-1]
+            return f"{pronoun} {fut_stem + _FUTURO_ENDINGS[idx]}"
+        if tense == "condizionale_semplice":
+            fut_stem = (stem + "er") if cls == "are" else base_infinitive[:-1]
+            return f"{pronoun} {fut_stem + _CONDIZIONALE_ENDINGS[idx]}"
+        if tense == "congiuntivo_presente":
+            return f"{pronoun} {stem + _CONGIUNTIVO_ENDINGS[cls][idx]}"
+        if tense == "passato_prossimo":
+            # Reflexivverben bilden das Perfekt immer mit essere.
+            participle = participle_override or (stem + _PARTICIPIO_ENDING[cls])
+            aux_forms_essere = {"io": "sono", "tu": "sei", "lui": "è", "lei": "è", "noi": "siamo", "voi": "siete", "loro": "sono"}
+            base_p = participle[:-1]
+            agreement = {"io": "o", "tu": "o", "lui": "o", "lei": "a", "noi": "i", "voi": "i", "loro": "i"}[person]
+            participle = base_p + agreement
+            return f"{pronoun} {aux_forms_essere[person]} {participle}"
+        raise ValueError(f"Unbekannte Zeitform: {tense}")
 
     cls = conjugation_class(infinitive, conj_class)
     stem = _stem(infinitive)
@@ -137,7 +173,8 @@ def explain_conjugation_error(
     infinitive: str, tense: str, person: str, expected: str, given: str,
     conj_class: Optional[str] = None,
 ) -> str:
-    cls = conjugation_class(infinitive, conj_class)
+    base_infinitive = infinitive[:-2] + "e" if is_reflexive(infinitive) else infinitive
+    cls = conjugation_class(base_infinitive, conj_class)
     label = TENSE_LABELS_DE.get(tense, tense)
     parts = [f"Richtig wäre '{expected}' ({label}, {person}, Verb auf -{cls.replace('_isc', '')})."]
 
@@ -147,7 +184,7 @@ def explain_conjugation_error(
             f"Endung '-{_PRESENTE_ENDINGS[cls][PERSONS.index(person)]}'."
         )
     if tense == "passato_prossimo":
-        aux = "essere" if infinitive in ESSERE_VERBS else "avere"
+        aux = "essere" if (is_reflexive(infinitive) or infinitive in ESSERE_VERBS) else "avere"
         parts.append(
             f"'{infinitive}' bildet das Perfekt mit '{aux}' + Partizip"
             + (", das Partizip passt sich bei essere-Verben in Endung an das Subjekt an (o/a/i)." if aux == "essere" else ".")
