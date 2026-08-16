@@ -27,3 +27,9 @@ class AskStart(BaseModel):
 class AskMessageIn(BaseModel):
     thread_id: str
     message: str
+
+
+class DrillCheck(BaseModel):
+    lexeme_id: str
+    tense: str
+    answers: dict  # {"io": "...", "tu": "...", ...}

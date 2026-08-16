@@ -42,7 +42,8 @@ function buildInstruction(payload) {
       return payload.direction === "de_to_it" ? "Übersetze ins Italienische:" : "Übersetze ins Deutsche:";
     case "conjugation": {
       const tense = payload.tense_label || payload.tense || "";
-      return `Konjugiere im ${tense}, Person „${payload.person}“:`;
+      const personLabel = payload.person_label ? ` (${payload.person_label})` : "";
+      return `Konjugiere im ${tense}, Person „${payload.person}“${personLabel}:`;
     }
     case "article":
       return payload.plural ? "Nenne den bestimmten Artikel (Plural):" : "Nenne den bestimmten Artikel (Singular):";
@@ -538,4 +539,115 @@ document.addEventListener("DOMContentLoaded", () => {
   initReview();
   initTimeline();
   initAskPage();
+  initDrill();
 });
+
+// ---------------- Konjugationstrainer (/drill) ----------------
+
+const PERSON_LABELS_DE = { io: "ich", tu: "du", lui: "er", lei: "sie", noi: "wir", voi: "ihr", loro: "sie/Sie" };
+
+function initDrill() {
+  const root = document.getElementById("drill-root");
+  const tenseSelect = document.getElementById("tense-select");
+  if (!root || !tenseSelect) return;
+
+  loadDrillVerb(root, tenseSelect.value);
+  tenseSelect.addEventListener("change", () => loadDrillVerb(root, tenseSelect.value));
+}
+
+async function loadDrillVerb(root, tense) {
+  root.innerHTML = '<p class="muted">Lade Verb …</p>';
+  let payload;
+  try {
+    payload = await fetchJSON("/drill/verb?tense=" + encodeURIComponent(tense));
+  } catch (err) {
+    root.innerHTML = `<p class="feedback wrong">Fehler: ${err.message}</p>`;
+    return;
+  }
+  if (payload.done) {
+    root.innerHTML = `<p class="muted">${payload.message || "Keine Verben für dieses Level gefunden."}</p>`;
+    return;
+  }
+  renderDrill(root, payload);
+}
+
+function renderDrill(root, payload) {
+  root.innerHTML = "";
+
+  root.appendChild(el("span", { class: "level-badge", text: payload.level }));
+  root.appendChild(
+    el("div", { class: "instruction-banner", style: "margin-top:0.8rem;" }, [
+      el("span", { class: "icon", text: "🔁" }),
+      el("span", { text: `Konjugiere alle Personen im ${payload.tense_label}:` }),
+    ])
+  );
+  root.appendChild(
+    el("div", { class: "exercise-question", text: `${payload.italian} (${payload.german})` })
+  );
+
+  const form = el("form", {});
+  const inputs = {};
+  payload.persons.forEach((person) => {
+    const row = el("div", { class: "inline", style: "margin-bottom:0.5rem;" });
+    row.appendChild(el("label", { style: "width:6.5rem; flex:none;", text: `${person} (${PERSON_LABELS_DE[person] || ""})` }));
+    const input = el("input", { type: "text", autocomplete: "off", "data-person": person });
+    inputs[person] = input;
+    row.appendChild(input);
+    form.appendChild(row);
+  });
+
+  const submitBtn = el("button", { type: "submit", text: "Prüfen" });
+  form.appendChild(submitBtn);
+  root.appendChild(form);
+
+  const resultHolder = el("div", { style: "margin-top:1rem;" });
+  root.appendChild(resultHolder);
+
+  form.addEventListener("submit", async (ev) => {
+    ev.preventDefault();
+    submitBtn.disabled = true;
+    const answers = {};
+    payload.persons.forEach((p) => (answers[p] = inputs[p].value));
+
+    let data;
+    try {
+      data = await fetchJSON("/drill/check", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ lexeme_id: payload.lexeme_id, tense: payload.tense, answers }),
+      });
+    } catch (err) {
+      resultHolder.innerHTML = `<div class="feedback wrong">Fehler: ${err.message}</div>`;
+      submitBtn.disabled = false;
+      return;
+    }
+
+    let correctCount = 0;
+    payload.persons.forEach((person) => {
+      const r = data.results[person];
+      const input = inputs[person];
+      input.disabled = true;
+      if (r.correct) {
+        correctCount += 1;
+        input.style.borderColor = "var(--good)";
+      } else {
+        input.style.borderColor = "var(--bad)";
+        input.parentElement.appendChild(
+          el("span", { class: "muted", style: "margin-left:0.6rem;", text: `richtig: ${r.expected}` })
+        );
+      }
+    });
+
+    resultHolder.innerHTML = "";
+    resultHolder.appendChild(
+      el("div", {
+        class: "feedback " + (data.all_correct ? "correct" : "wrong"),
+        text: data.all_correct ? "Alles richtig! ✓" : `${correctCount} von ${payload.persons.length} richtig.`,
+      })
+    );
+    const nextBtn = el("button", { text: "Nächstes Verb", style: "margin-top:0.8rem;" });
+    const tenseSelect = document.getElementById("tense-select");
+    nextBtn.addEventListener("click", () => loadDrillVerb(root, tenseSelect.value));
+    resultHolder.appendChild(nextBtn);
+  });
+}

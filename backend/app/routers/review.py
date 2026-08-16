@@ -32,6 +32,11 @@ CONJUGATION_TENSES_BY_LEVEL = {
     "B2": ["presente", "passato_prossimo", "imperfetto", "futuro_semplice", "condizionale_semplice", "congiuntivo_presente"],
 }
 
+PERSON_LABELS_DE = {
+    "io": "ich", "tu": "du", "lui": "er", "lei": "sie",
+    "noi": "wir", "voi": "ihr", "loro": "sie/Sie",
+}
+
 
 def _normalize(text: str) -> str:
     text = text.strip().lower()
@@ -119,7 +124,8 @@ def next_exercise(db: Session = Depends(get_db), profile: Profile = Depends(requ
         payload["tense"] = tense
         payload["person"] = person
         payload["tense_label"] = conjugation.TENSE_LABELS_DE.get(tense, tense)
-        payload["question"] = f"{lexeme.italian} ({lexeme.german}) \u2014 {person}"
+        payload["person_label"] = PERSON_LABELS_DE.get(person, person)
+        payload["question"] = f"{lexeme.italian} ({lexeme.german}) \u2014 {person} ({PERSON_LABELS_DE.get(person, person)})"
 
     elif exercise_type == "article":
         is_plural = random.random() < 0.4

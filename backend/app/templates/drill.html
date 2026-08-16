@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Konjugieren – Passaporto Italiano{% endblock %}
+{% block content %}
+<div class="card">
+  <h1>Konjugationstrainer</h1>
+  <p class="muted">Ein Verb, eine Zeitform, alle sieben Personen auf einmal – zum stumpfen Einüben der Formen.</p>
+  <div class="inline" style="margin-top:0.8rem;">
+    <label for="tense-select" class="muted">Zeitform:</label>
+    <select id="tense-select">
+      <option value="presente">Präsens</option>
+      <option value="passato_prossimo">Perfekt (passato prossimo)</option>
+      <option value="imperfetto">Imperfekt</option>
+      <option value="futuro_semplice">Futur I</option>
+      <option value="condizionale_semplice">Konditional I</option>
+      <option value="congiuntivo_presente">Konjunktiv Präsens</option>
+    </select>
+  </div>
+</div>
+
+<div class="card" id="drill-root">
+  <p class="muted">Lade …</p>
+</div>
+{% endblock %}
